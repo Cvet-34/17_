@@ -45,7 +45,7 @@ async def create_task(db: Annotated[Session, Depends(get_db)], create_task_: Cre
                                 content=create_task_.content,
                                 priority=create_task_.priority,
                                 user_id=user_id,
-                                slag=slugify(create_task_.title)))           #slag при помощи библиотеки slugify
+                                slug=slugify(create_task_.title)))           #slug при помощи библиотеки slugify
     db.commit()
     return {
         'status_code': status.HTTP_201_CREATED,
